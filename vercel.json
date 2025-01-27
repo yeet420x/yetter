@@ -1,14 +1,29 @@
 {
-    "build": {
-      "env": {
-        "CI": "false"
-      }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/audio/.*\\.(mp3|wav|ogg)$",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
+      "continue": true
     },
-    "buildCommand": "cd frontend && npm install && npm run build",
-    "outputDirectory": "frontend/build",
-    "installCommand": "cd frontend && npm install",
-    "public": true,
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
-    ]
-  }
+    {
+      "src": "/images/.*\\.(png|jpg|jpeg|gif|webp|ico|svg)$",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
