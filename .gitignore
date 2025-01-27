@@ -44,3 +44,4 @@ model/*.onnx
 model/venv/
 model/__pycache__/
 model/*.pyc
+.vercel
