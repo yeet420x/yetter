@@ -1,0 +1,25 @@
+.background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.pattern-element {
+  position: absolute;
+  width: 200px;
+  height: 400px;
+  border: 2px solid #ff1493;
+  opacity: 0.3;
+  font-family: 'Wicked Knight', sans-serif;
+}
+
+.pattern-element:nth-child(1) { left: 5%; transform: skew(-10deg); }
+.pattern-element:nth-child(2) { left: 20%; transform: skew(-10deg); }
+.pattern-element:nth-child(3) { left: 35%; transform: skew(-10deg); }
+.pattern-element:nth-child(4) { left: 50%; transform: skew(-10deg); }
+.pattern-element:nth-child(5) { left: 65%; transform: skew(-10deg); }
+.pattern-element:nth-child(6) { left: 80%; transform: skew(-10deg); }
+.pattern-element:nth-child(7) { left: 95%; transform: skew(-10deg); } 

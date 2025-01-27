@@ -1,0 +1,58 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+}
+
+.terminal-window {
+  width: 80%;
+  max-width: 800px;
+  padding: 2rem;
+  color: #6e4a9e;
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  line-height: 2;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 9999999999;
+  background-color: black;
+}
+
+.terminal-line {
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.prompt {
+  color: #9b6ddf;
+  margin-right: 1rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background-color: #6e4a9e;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+} 

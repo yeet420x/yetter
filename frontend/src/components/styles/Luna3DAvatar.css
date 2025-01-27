@@ -1,0 +1,33 @@
+.avatar-container {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid #6e4a9e;
+  box-shadow: 0 8px 32px rgba(110, 74, 158, 0.2);
+  position: relative;
+}
+
+.avatar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(26, 26, 26, 0.8) 100%);
+  pointer-events: none;
+}
+
+.loading-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #6e4a9e;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(110, 74, 158, 0.5);
+} 

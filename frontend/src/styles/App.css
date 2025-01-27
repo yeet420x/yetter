@@ -1,0 +1,38 @@
+.App {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.App.dark {
+  background-color: #000;
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content.visible {
+  opacity: 1;
+}
+
+.entrance-animation-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 99998;
+  pointer-events: all;
+}
+
+/* Force the chat interface to be visible when shown */
+.chat-interface {
+  visibility: visible !important;
+  opacity: 1 !important;
+} 

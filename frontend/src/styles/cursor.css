@@ -1,0 +1,138 @@
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(-135deg);
+  will-change: transform;
+  transition: transform 0.1s ease;
+}
+
+.wand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.wand::before {
+  /* Wand handle */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  background: #4a0066;
+  border-radius: 2px;
+  box-shadow: 0 0 5px #9b6ddf;
+}
+
+.wand::after {
+  /* Wand tip */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #9b6ddf;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px #9b6ddf,
+    0 0 20px #6e4a9e,
+    0 0 30px #4a0066;
+  animation: wandGlow 1.5s ease-in-out infinite;
+}
+
+.electric-effect {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9996;
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+  animation: electricExpand 0.5s ease-out forwards;
+}
+
+.electric-bolt {
+  position: absolute;
+  background: #9b6ddf;
+  width: 2px;
+  height: 20px;
+  transform-origin: center;
+  filter: blur(1px);
+  box-shadow: 
+    0 0 10px #9b6ddf,
+    0 0 20px #6e4a9e;
+  animation: boltFlicker 0.2s ease-out forwards;
+}
+
+@keyframes wandGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 10px #9b6ddf,
+      0 0 20px #6e4a9e,
+      0 0 30px #4a0066;
+  }
+  50% { 
+    box-shadow: 
+      0 0 15px #9b6ddf,
+      0 0 25px #6e4a9e,
+      0 0 35px #4a0066;
+  }
+}
+
+@keyframes electricExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes boltFlicker {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+} 
+.click-effect {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9996;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #8b0000;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: clickExpand 0.5s ease-out forwards;
+}
+
+@keyframes clickExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+} 
