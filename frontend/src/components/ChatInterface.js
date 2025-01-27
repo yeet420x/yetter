@@ -95,7 +95,7 @@ function ChatInterface() {
         </div>
       </div>
       <div className="luna-avatar">
-        <img src={process.env.PUBLIC_URL + '/images/luna.PNG'} alt="Luna" />
+        <img src={process.env.PUBLIC_URL + '/images/Luna.png'} alt="Luna" />
       </div>
     </div>
   );
