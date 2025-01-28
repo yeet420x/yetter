@@ -394,40 +394,32 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 0;
     background: black;
   }
 
   .luna-avatar {
     width: 100%;
-    height: 70vh;
-    margin: 0;
-    padding: 0;
+    height: 60vh;
+    position: absolute;
+    top: 50px; /* Space for top text */
+    left: 0;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-5%);
   }
 
   .luna-avatar img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   .chat-box {
-    position: fixed;
-    bottom: 100px;
+    position: absolute;
+    bottom: 90px; /* Space for bottom icons */
     left: 0;
     width: 100%;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0 15px;
   }
 
   .messages-area {
@@ -435,26 +427,30 @@
   }
 
   .input-container {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .message-input {
     width: 100%;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #FF1493;
+    height: 45px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid #FF1493;
     border-radius: 12px;
     color: white;
     padding: 0 15px;
     font-size: 16px;
   }
 
+  .message-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
   .speak-button {
     width: 100%;
-    height: 50px;
+    height: 45px;
     background: #FF1493;
     border: none;
     border-radius: 12px;
@@ -463,6 +459,19 @@
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 1px;
+  }
+
+  /* Audio hint styling */
+  .audio-hint {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FF1493;
+    font-size: 18px;
+    text-align: center;
+    z-index: 1000;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
   }
 }
 
