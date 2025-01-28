@@ -482,10 +482,10 @@
 
   .chat-interface {
     position: fixed;
-    top: 300px;
+    top: 0;
     left: 0;
-    width: 600%;
-    height: 50vh;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -511,9 +511,9 @@
 
   .chat-box {
     position: absolute;
-    bottom: 100px; /* Just above icons */
+    bottom: -500px; /* Just above icons */
     left: 0;
-    width: 100%;
+    width: 70%;
     padding: 0 15px;
     z-index: 2;
   }
