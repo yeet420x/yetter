@@ -3,6 +3,7 @@ import './App.css';
 import ChatInterface from './components/ChatInterface';
 import BackgroundText from './components/BackgroundText';
 import EntranceAnimation from './components/EntranceAnimation';
+import MobileNotice from './components/MobileNotice';
 
 function App() {
   const [showEntrance, setShowEntrance] = useState(true);
@@ -61,6 +62,7 @@ function App() {
         );
       }
     }}>
+      <MobileNotice />
       <div className="audio-hint">
         CLICK ANYWHERE FOR AUDIO
       </div>

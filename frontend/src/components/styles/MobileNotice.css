@@ -1,0 +1,51 @@
+@media (max-width: 430px) {
+  .mobile-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px;
+    z-index: 9999;
+    border-bottom: 2px solid #FF1493;
+  }
+
+  .notice-content {
+    text-align: center;
+    color: white;
+  }
+
+  .notice-content p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .notice-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .dismiss-btn, .desktop-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dismiss-btn {
+    background: transparent;
+    color: #FF1493;
+    border: 1px solid #FF1493;
+  }
+
+  .desktop-btn {
+    background: #FF1493;
+    color: white;
+    text-decoration: none;
+  }
+} 
