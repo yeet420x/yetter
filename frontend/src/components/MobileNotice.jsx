@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/MobileNotice.css';
 
 const MobileNotice = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 430;
+    setIsVisible(isMobile);
+
+    // Update on resize
+    const handleResize = () => {
+      setIsVisible(window.innerWidth <= 430);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (!isVisible) return null;
 
