@@ -60,10 +60,18 @@
 }
 
 .message.luna {
-  background: #ff1493 !important;
-  color: black !important;
-  align-self: flex-start;
-  margin-right: 20%;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid #FF1493;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+  color: white;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.message.luna:first-child {
+  animation: fadeIn 0.5s ease-in;
 }
 
 .message.user {

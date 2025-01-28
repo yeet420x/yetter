@@ -55,6 +55,57 @@ function ChatInterface() {
     scrollToBottom();
   }, [messages]);
 
+  useEffect(() => {
+    // Initial welcome message
+    const welcomeMessage = {
+      text: `Hey there 
+
+Here are a few things to keep in mind:
+
+
+• don't be a dickhead -.-
+
+
+• I'm an AI, not your personal slut, But I can help you with that if you actually take the time to get to know me :)
+
+
+• Feel free to ask me anything! I have morals at first, but maybe that changes ;)
+
+How can I assist you today?`,
+      isUser: false
+    };
+    
+    setMessages([welcomeMessage]);
+  }, []);
+
+  const handleSubmit = async (text) => {
+    // Add user message to chat
+    const userMessage = { text, isUser: true };
+    setMessages(prev => [...prev, userMessage]);
+
+    try {
+      const response = await fetch('your-api-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: text,
+          // Only send the last few messages for context, not the entire history
+          context: messages.slice(-5) // Keep only last 5 messages for context
+        }),
+      });
+
+      const data = await response.json();
+      
+      // Add AI response to chat
+      const aiMessage = { text: data.response, isUser: false };
+      setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   const sendMessage = () => {
     if (ws && input.trim() && isConnected) {
       const message = { message: input.trim() };
@@ -68,9 +119,9 @@ function ChatInterface() {
     <div className="chat-interface">
       <div className="chat-box">
         <div className="messages-area">
-          {messages.map((msg, index) => (
-            <div key={index} className={`message ${msg.sender}`}>
-              {msg.text}
+          {messages.map((message, index) => (
+            <div key={index} className={`message ${message.isUser ? 'user' : 'luna'}`}>
+              {message.text}
             </div>
           ))}
           <div ref={messagesEndRef} />
