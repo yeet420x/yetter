@@ -396,53 +396,50 @@
 
   .luna-avatar {
     width: 100%;
-    height: 50vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    height: 45vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   .luna-avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top;
   }
 
   .chat-box {
     width: 100%;
-    position: fixed;
-    top: 50vh;
-    left: 0;
-    height: calc(50vh - 60px); /* Subtract space for icons */
+    height: 25vh;  /* Reduced height to make room for icons */
+    margin-top: auto;
+    background: transparent;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    background: black;
-    padding: 10px;
-    z-index: 2;
+    gap: 10px;
   }
 
   .messages-area {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
     overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
 
   .input-container {
     width: 100%;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0 10px;
+    margin-bottom: 70px; /* Space for icons */
   }
 
   .message-input {
     width: 100%;
-    height: 50px;
+    height: 45px;
     background: rgba(20, 20, 20, 0.8);
     border: none;
     border-radius: 10px;
@@ -452,7 +449,7 @@
 
   .speak-button {
     width: 100%;
-    height: 50px;
+    height: 45px;
     background: #FF1493;
     border: none;
     border-radius: 10px;
