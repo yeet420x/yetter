@@ -9,15 +9,15 @@ const MobileNotice = () => {
   return (
     <div className="mobile-notice">
       <div className="notice-content">
-        <p>For the best experience, consider using Desktop Mode in your browser</p>
-        <div className="notice-buttons">
-          <button onClick={() => setIsVisible(false)} className="dismiss-btn">
-            Continue on Mobile
-          </button>
-          <a href="?desktop=1" className="desktop-btn">
-            Switch to Desktop
-          </a>
-        </div>
+        <p>For the best experience:</p>
+        <ol className="instructions">
+          <li>Open your browser menu (⋮)</li>
+          <li>Check "Desktop site" or "Request desktop site"</li>
+          <li>Refresh the page</li>
+        </ol>
+        <button onClick={() => setIsVisible(false)} className="dismiss-btn">
+          Continue on Mobile
+        </button>
       </div>
     </div>
   );

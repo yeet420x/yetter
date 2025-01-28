@@ -16,36 +16,34 @@
   }
 
   .notice-content p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 14px;
+    color: #FF1493;
+    font-weight: bold;
+  }
+
+  .instructions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: white;
+  }
+
+  .instructions li {
+    margin-bottom: 5px;
     line-height: 1.4;
   }
 
-  .notice-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .dismiss-btn, .desktop-btn {
+  .dismiss-btn {
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dismiss-btn {
     background: transparent;
     color: #FF1493;
     border: 1px solid #FF1493;
-  }
-
-  .desktop-btn {
-    background: #FF1493;
-    color: white;
-    text-decoration: none;
+    cursor: pointer;
   }
 } 
