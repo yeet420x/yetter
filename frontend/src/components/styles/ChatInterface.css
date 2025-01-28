@@ -511,9 +511,9 @@
 
   .chat-box {
     position: absolute;
-    bottom: -500px; /* Just above icons */
+    bottom: -300px; /* Just above icons */
     left: 0;
-    width: 70%;
+    width: 30%;
     padding: 0 15px;
     z-index: 2;
   }
