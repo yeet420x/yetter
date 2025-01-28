@@ -382,15 +382,14 @@
 }
 
 @media (max-width: 768px) {
-  /* Hide BackgroundText on mobile */
   .background-text {
     display: none !important;
   }
 
   .chat-interface {
     position: fixed;
-    top: 500px;
-    left: 300px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -401,77 +400,68 @@
 
   .luna-avatar {
     width: 100%;
-    height: 45vh;
-    margin: 100px;
+    height: 70vh;
+    margin: 0;
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: flex-end; /* Move avatar to the right */
+    justify-content: flex-start; /* Move avatar to the left */
     align-items: center;
   }
 
   .luna-avatar img {
-    width: 90%; /* Slightly smaller to shift right */
+    width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: right top; /* Align to right */
-    margin-right: -20px; /* Pull slightly more to the right */
+    object-position: center; /* Center the image */
+    margin-left: -15%; /* Pull slightly to the left */
   }
 
   .chat-box {
+    position: fixed;
+    bottom: 80px; /* Space for icons */
+    left: 0;
     width: 100%;
-    height: 25vh;
-    margin-top: 0; /* Remove any gap */
-    background: transparent;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 0 15px;
   }
 
   .messages-area {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    display: none; /* Hide messages area for now */
   }
 
   .input-container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 0 10px;
-    margin-bottom: 70px;
+    gap: 12px;
   }
 
   .message-input {
     width: 100%;
-    height: 45px;
-    background: rgba(20, 20, 20, 0.8);
-    border: none;
-    border-radius: 10px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #FF1493;
+    border-radius: 12px;
     color: white;
     padding: 0 15px;
+    font-size: 16px;
+  }
+
+  .message-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .speak-button {
     width: 100%;
-    height: 45px;
+    height: 50px;
     background: #FF1493;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 16px;
-  }
-
-  .social-icons {
-    position: fixed;
-    bottom: 20px;
-    z-index: 3;
+    letter-spacing: 1px;
   }
 }
 
