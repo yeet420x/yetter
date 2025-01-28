@@ -475,6 +475,101 @@
   }
 }
 
+@media (max-width: 430px) { /* iPhone-specific breakpoint */
+  .background-text {
+    display: none !important;
+  }
+
+  .chat-interface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: black;
+  }
+
+  .luna-avatar {
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    top: 15vh; /* Push down from top */
+    left: 25%; /* Push from left */
+    overflow: hidden;
+  }
+
+  .luna-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.5); /* Make image larger */
+  }
+
+  .chat-box {
+    position: absolute;
+    bottom: 100px; /* Just above icons */
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 2;
+  }
+
+  .messages-area {
+    display: none;
+  }
+
+  .input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .message-input {
+    width: 100%;
+    height: 45px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid #FF1493;
+    border-radius: 12px;
+    color: white;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+
+  .message-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .speak-button {
+    width: 100%;
+    height: 45px;
+    background: #FF1493;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .audio-hint {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FF1493;
+    font-size: 18px;
+    text-align: center;
+    z-index: 1000;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+  }
+}
+
 @media (max-width: 480px) {
   .avatar-section {
     flex: 0 0 250px;
