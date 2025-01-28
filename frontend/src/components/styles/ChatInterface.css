@@ -382,6 +382,11 @@
 }
 
 @media (max-width: 768px) {
+  /* Hide BackgroundText on mobile */
+  .background-text {
+    display: none !important;
+  }
+
   .chat-interface {
     position: fixed;
     top: 0;
@@ -400,19 +405,23 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end; /* Move avatar to the right */
+    align-items: center;
   }
 
   .luna-avatar img {
-    width: 100%;
+    width: 90%; /* Slightly smaller to shift right */
     height: 100%;
     object-fit: contain;
-    object-position: top;
+    object-position: right top; /* Align to right */
+    margin-right: -20px; /* Pull slightly more to the right */
   }
 
   .chat-box {
     width: 100%;
-    height: 25vh;  /* Reduced height to make room for icons */
-    margin-top: auto;
+    height: 25vh;
+    margin-top: 0; /* Remove any gap */
     background: transparent;
     padding: 10px;
     display: flex;
@@ -434,7 +443,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 0 10px;
-    margin-bottom: 70px; /* Space for icons */
+    margin-bottom: 70px;
   }
 
   .message-input {
