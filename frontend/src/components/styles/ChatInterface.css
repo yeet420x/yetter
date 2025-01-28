@@ -394,6 +394,8 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     background: black;
   }
@@ -405,32 +407,35 @@
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: flex-start; /* Move avatar to the left */
+    justify-content: center;
     align-items: center;
+    transform: translateY(-5%);
   }
 
   .luna-avatar img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: center; /* Center the image */
-    margin-left: -15%; /* Pull slightly to the left */
+    object-position: center;
   }
 
   .chat-box {
     position: fixed;
-    bottom: 80px; /* Space for icons */
+    bottom: 100px;
     left: 0;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .messages-area {
-    display: none; /* Hide messages area for now */
+    display: none;
   }
 
   .input-container {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -445,10 +450,6 @@
     color: white;
     padding: 0 15px;
     font-size: 16px;
-  }
-
-  .message-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
   }
 
   .speak-button {
