@@ -79,23 +79,14 @@ const ChatInterface: React.FC = () => {
     );
   };
 
-  const sendMessage = useCallback(() => {
+  const sendMessage = () => {
     if (ws && input.trim() && isConnected) {
-      const trimmedInput = input.trim();
-      
-      // Check if message is a greeting
-      if (checkForGreeting(trimmedInput)) {
-        setIsGreeting(true);
-        // Reset greeting state after animation
-        setTimeout(() => setIsGreeting(false), 1500);
-      }
-
-      ws.send(JSON.stringify({ message: trimmedInput }));
-      setMessages(prev => [...prev, { text: trimmedInput, sender: 'user' }]);
+      const message = { message: input.trim() };
+      ws.send(JSON.stringify(message));
+      setMessages(prev => [...prev, { text: input.trim(), sender: 'user' }]);
       setInput('');
-      setIsTyping(true);
     }
-  }, [ws, input, isConnected]);
+  };
 
   const checkForPositiveMessage = (message: string): boolean => {
     const positiveWords = [

@@ -37,31 +37,7 @@
   animation: darkPulse 15s ease infinite;
 }
 
-.message {
-  animation: mysticalFade 0.5s ease-out;
-}
 
-.message.luna {
-  position: relative;
-  overflow: hidden;
-}
-
-.message.luna::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(110, 74, 158, 0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  animation: shimmer 3s linear infinite;
-}
 
 @keyframes shimmer {
   0% { transform: translateX(-100%) rotate(45deg); }

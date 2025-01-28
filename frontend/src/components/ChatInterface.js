@@ -120,19 +120,21 @@ How can I assist you today?`,
       <div className="chat-box">
         <div className="messages-area">
           {messages.map((message, index) => (
-            <div key={index} className={`message ${message.isUser ? 'user' : 'luna'}`}>
+            <div 
+              key={index} 
+              className={`message ${message.sender}`}
+            >
               {message.text}
             </div>
           ))}
           <div ref={messagesEndRef} />
         </div>
-        <div className="input-container">
-          <input 
-            type="text"
+        <div className="input-area">
+          <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-            placeholder={isConnected ? "Whisper to LUNA..." : "Connecting..."}
+            onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
+            placeholder={isConnected ? "Say something don't be shy :D" : "Awaiting connection..."}
             className="message-input"
             disabled={!isConnected}
           />
