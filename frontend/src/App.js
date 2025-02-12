@@ -81,9 +81,7 @@ function App() {
         </main>
         <footer className="footer">
           <div className="social-icons">
-            <a href="https://t.me/LunAIonSOL" className="icon-link">
-              <img src="/images/tg.svg" alt="Telegram" />
-            </a>
+            
             <a href="https://raydium.io/swap" className="icon-link">
               <img 
                 src="/images/dex.svg" 
@@ -95,8 +93,18 @@ function App() {
                 }}
               />
             </a>
-            <a href="https://docs.lunai.com" className="icon-link">
-              <img src="/images/gitbook.svg" alt="Gitbook" />
+            <a href='https://pump.fun/' className="icon-link">
+              <img 
+                src="/images/pump.svg" 
+                alt="Pump" 
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  objectFit: 'contain',
+                  color: 'pink',
+                  backgroundColor: '#FF1493'
+                }}
+              />
             </a>
             <a href="https://x.com/LunAIonSOL" className="icon-link">
               <img 
