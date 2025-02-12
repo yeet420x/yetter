@@ -104,7 +104,7 @@ function App() {
                 }}
               />
             </a>
-            <a href='https://pump.fun/' className="icon-link">
+            <a href='https://pump.fun/coin/CkU9kLsiMP9UHFXePBNhyXa8PjNPSkmVwd5NBbnUpump' className="icon-link">
               <img 
                 src="/images/pump.svg" 
                 alt="Pump" 
