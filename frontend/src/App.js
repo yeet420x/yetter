@@ -82,7 +82,7 @@ function App() {
         <footer className="footer">
           <div className="social-icons">
             
-            <a href="https://raydium.io/swap" className="icon-link">
+            <a href="https://dexscreener.com/solana/cku9klsimp9uhfxepbnhyxa8pjnpskmvwd5nbbnupump" className="icon-link">
               <img 
                 src="/images/dex.svg" 
                 alt="Dex" 
