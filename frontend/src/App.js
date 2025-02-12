@@ -93,6 +93,17 @@ function App() {
                 }}
               />
             </a>
+            <a href='https://t.me/lunaaisolana' className="icon-link">
+                <img 
+                src="/images/tg.svg" 
+                alt="Telegram" 
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  objectFit: 'contain'
+                }}
+              />
+            </a>
             <a href='https://pump.fun/' className="icon-link">
               <img 
                 src="/images/pump.svg" 
