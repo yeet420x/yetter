@@ -82,7 +82,7 @@ function App() {
         <footer className="footer">
           <div className="social-icons">
             
-            <a href="https://dexscreener.com/solana/cku9klsimp9uhfxepbnhyxa8pjnpskmvwd5nbbnupump" className="icon-link">
+            <a href="https://dexscreener.com/" className="icon-link">
               <img 
                 src="/images/dex.svg" 
                 alt="Dex" 
@@ -93,7 +93,7 @@ function App() {
                 }}
               />
             </a>
-            <a href='https://t.me/lunaaisolana' className="icon-link">
+            <a href='https://t.me/' className="icon-link">
                 <img 
                 src="/images/tg.svg" 
                 alt="Telegram" 
@@ -104,7 +104,7 @@ function App() {
                 }}
               />
             </a>
-            <a href='https://pump.fun/coin/CkU9kLsiMP9UHFXePBNhyXa8PjNPSkmVwd5NBbnUpump' className="icon-link">
+            <a href='https://pump.fun/coin/' className="icon-link">
               <img 
                 src="/images/pump.svg" 
                 alt="Pump" 
