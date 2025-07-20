@@ -586,3 +586,190 @@
   text-align: right !important;
   box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
 } 
+
+/* Additional Mobile Support for New App Layout */
+/* These styles work alongside the existing CSS */
+
+/* Mobile support for the new App layout structure */
+@media (max-width: 768px) {
+  /* Override the fixed positioning for mobile */
+  .chat-interface {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 5px !important;
+    height: 100% !important;
+  }
+
+  /* Make the chat container work in the new layout */
+  .chat-container {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid #ff1493 !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(5px) !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Adjust avatar section for mobile */
+  .avatar-section {
+    flex: 0 0 150px !important;
+    min-width: auto !important;
+    min-height: 150px !important;
+    height: auto !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Adjust messages section for mobile */
+  .messages-section {
+    flex: 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Adjust messages container for mobile */
+  .messages-container {
+    padding: 0.8rem !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Adjust input area for mobile */
+  .input-area {
+    padding: 0.8rem !important;
+    position: relative !important;
+    bottom: auto !important;
+  }
+
+  .input-area input {
+    padding: 10px !important;
+    font-size: 13px !important;
+    min-height: 44px !important; /* iOS touch target */
+  }
+
+  .input-area button {
+    padding: 10px 15px !important;
+    font-size: 13px !important;
+    min-height: 44px !important; /* iOS touch target */
+  }
+
+  /* Adjust message styles for mobile */
+  .message {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-interface {
+    padding: 3px !important;
+  }
+
+  .avatar-section {
+    flex: 0 0 120px !important;
+    min-height: 120px !important;
+    padding: 0.3rem !important;
+  }
+
+  .messages-container {
+    padding: 0.6rem !important;
+  }
+
+  .input-area {
+    padding: 0.6rem !important;
+  }
+
+  .input-area input {
+    padding: 8px !important;
+    font-size: 12px !important;
+  }
+
+  .input-area button {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .message {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+    max-width: 85% !important;
+  }
+}
+
+/* iPhone-specific optimizations */
+@media (max-width: 430px) {
+  .avatar-section {
+    flex: 0 0 100px !important;
+    min-height: 100px !important;
+  }
+
+  .input-area {
+    gap: 8px !important;
+  }
+
+  .input-area button {
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .avatar-section {
+    flex: 0 0 80px !important;
+    min-height: 80px !important;
+  }
+
+  .messages-container {
+    padding: 0.5rem !important;
+  }
+
+  .input-area {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Prevent zoom on input focus for iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .input-area input {
+    font-size: 16px !important;
+  }
+}
+
+/* Ensure proper scrolling behavior */
+.messages-container {
+  -webkit-overflow-scrolling: touch !important;
+  scroll-behavior: smooth !important;
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .chat-container {
+    border-width: 1px !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .chat-container {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  .avatar-section {
+    background: rgba(10, 10, 15, 0.9) !important;
+  }
+  
+  .messages-section {
+    background: rgba(10, 10, 15, 0.6) !important;
+  }
+} 

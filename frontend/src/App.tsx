@@ -35,12 +35,30 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <header className="header">
-        <h1>Luna AI</h1>
+      {/* Header with Logo */}
+      <header className="app-header">
+        <div className="logo-container">
+          <img src="/images/luna.png" alt="Luna AI" className="logo-image" />
+          <h1 className="logo-text">Luna AI</h1>
+        </div>
       </header>
-      <div className="chat-wrapper">
+
+      {/* Main Chat Area */}
+      <main className="app-main">
         <ChatInterface />
-      </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="app-footer">
+        <div className="footer-content">
+          <p>&copy; 2024 Luna AI. Your Gothic AI Companion.</p>
+          <div className="footer-links">
+            <a href="#" className="footer-link">Privacy</a>
+            <a href="#" className="footer-link">Terms</a>
+            <a href="#" className="footer-link">Support</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

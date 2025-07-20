@@ -1,5 +1,7 @@
 :root {
   --neon-pink: #ff1493;
+  --header-height: 80px;
+  --footer-height: 60px;
 }
 
 body {
@@ -9,6 +11,8 @@ body {
   color: white;
   font-family: 'Arial', sans-serif;
   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 #root {
@@ -18,12 +22,229 @@ body {
   position: relative;
 }
 
-.App {
-  min-height: 100vh;
+/* Main App Layout */
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: url('./images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
+}
+
+.app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+/* Header Styles */
+.app-header {
+  position: relative;
+  z-index: 10;
+  height: var(--header-height);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--neon-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.logo-text {
+  color: var(--neon-pink);
+  font-family: 'Wicked Knight', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 30px var(--neon-pink);
+  animation: lunaGlow 2s infinite alternate;
+}
+
+/* Main Content Area */
+.app-main {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0; /* Important for flex child */
+}
+
+/* Footer Styles */
+.app-footer {
+  position: relative;
+  z-index: 10;
+  height: var(--footer-height);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 2px solid var(--neon-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-link {
+  color: var(--neon-pink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Animation */
+@keyframes lunaGlow {
+  from {
+    text-shadow: 
+      0 0 10px var(--neon-pink),
+      0 0 20px var(--neon-pink),
+      0 0 30px var(--neon-pink);
+  }
+  to {
+    text-shadow: 
+      0 0 15px var(--neon-pink),
+      0 0 25px var(--neon-pink),
+      0 0 35px var(--neon-pink),
+      0 0 45px var(--neon-pink);
+  }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+    --footer-height: 50px;
+  }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .footer-content p {
+    font-size: 0.7rem;
+  }
+
+  .footer-links {
+    gap: 10px;
+  }
+
+  .footer-link {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 60px;
+    --footer-height: 45px;
+  }
+
+  .logo-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+  }
+
+  .app-header {
+    padding: 0 15px;
+  }
+
+  .footer-content p {
+    font-size: 0.6rem;
+  }
+
+  .footer-links {
+    gap: 8px;
+  }
+
+  .footer-link {
+    font-size: 0.5rem;
+  }
+}
+
+/* iPhone-specific optimizations */
+@media (max-width: 430px) {
+  .logo-container {
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --header-height: 50px;
+    --footer-height: 40px;
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
 }
 
 .background-container {
@@ -66,17 +287,6 @@ body {
     0 0 100px #FF1493,
     0 0 150px #FF1493;
   animation: lunaGlow 2s infinite alternate;
-}
-
-.App::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
 }
 
 .App-header {
@@ -167,14 +377,6 @@ main {
 
 .input-area button:hover {
   background-color: #9f87cc;
-}
-
-.app {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: black;
 }
 
 .header {
@@ -561,4 +763,117 @@ main {
 .content.visible {
   opacity: 1;
   visibility: visible;
+}
+
+/* Additional Mobile-Specific Styles */
+@media (max-width: 768px) {
+  /* Ensure full viewport usage */
+  .app {
+    height: 100vh;
+    height: -webkit-fill-available;
+    height: fill-available;
+  }
+
+  /* Prevent body scroll on mobile */
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Ensure proper safe area handling for iPhone X and newer */
+  .app-header {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .app-footer {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Optimize touch targets */
+  .logo-container {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .logo-image {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* iPhone X and newer specific styles */
+@supports (padding: max(0px)) {
+  .app-header {
+    padding-top: max(20px, env(safe-area-inset-top));
+  }
+
+  .app-footer {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Landscape mode optimizations */
+@media (orientation: landscape) and (max-height: 500px) {
+  .app-header {
+    height: 50px;
+    padding: 5px 20px;
+  }
+
+  .app-footer {
+    height: 40px;
+    padding: 5px 20px;
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Prevent text selection on mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Ensure proper scrolling behavior */
+.messages-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Prevent zoom on input focus */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
