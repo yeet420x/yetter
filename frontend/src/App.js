@@ -93,30 +93,7 @@ function App() {
                 }}
               />
             </a>
-            <a href='https://t.me/' className="icon-link">
-                <img 
-                src="/images/tg.svg" 
-                alt="Telegram" 
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  objectFit: 'contain'
-                }}
-              />
-            </a>
-            <a href='https://pump.fun/coin/' className="icon-link">
-              <img 
-                src="/images/pump.svg" 
-                alt="Pump" 
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  objectFit: 'contain',
-                  color: 'pink',
-                  backgroundColor: '#FF1493'
-                }}
-              />
-            </a>
+            
             <a href="https://x.com/LunAIonSOL" className="icon-link">
               <img 
                 src="/images/X.svg" 
