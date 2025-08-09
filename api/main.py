@@ -2,6 +2,9 @@ from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 from agents.luna.main import LunaAgent
+from twitter import TwitterAPI
+import os
+from fastapi import HTTPException
 
 app = FastAPI()
 logger = logging.getLogger(__name__)
@@ -18,40 +21,49 @@ app.add_middleware(
 # Initialize Luna agent
 luna = LunaAgent()
 
+twitter_api = TwitterAPI(
+    consumer_key=os.getenv('TWITTER_API_KEY'),
+    consumer_secret=os.getenv('TWITTER_API_SECRET'),
+    access_token=os.getenv('TWITTER_ACCESS_TOKEN'),
+    access_token_secret=os.getenv('TWITTER_ACCESS_SECRET')
+)
+
 @app.websocket("/ws/chat")
 async def websocket_endpoint(websocket: WebSocket):
     try:
         await websocket.accept()
-        logger.debug("WebSocket connection accepted")
+        logger.info("WebSocket connection established")
         
         while True:
+            message = await websocket.receive_text()
+            logger.debug(f"Received message: {message}")
+            
             try:
-                # Receive message from client
-                message = await websocket.receive_text()
-                
-                # Generate response from Luna
                 response = luna.process_message(message)
-                
-                # Send response back to client
                 await websocket.send_json(response)
+                logger.debug(f"Sent response: {response}")
                 
             except Exception as e:
-                logger.error(f"Error in WebSocket communication: {e}")
+                logger.error(f"Message processing error: {str(e)}", exc_info=True)
                 await websocket.send_json({
-                    "message": "*connection flickers* Something seems to be amiss...",
+                    "message": "⚠️ My circuits are glitching... Try again?",
                     "status": "error"
                 })
                 
     except Exception as e:
-        logger.error(f"WebSocket connection error: {e}")
+        logger.error(f"WebSocket error: {str(e)}", exc_info=True)
     finally:
-        try:
-            await websocket.close()
-            logger.info("Client disconnected normally")
-        except:
-            logger.warning("Client disconnected abnormally")
-        logger.debug("WebSocket connection ended")
+        await websocket.close()
+        logger.info("WebSocket connection closed")
 
 @app.get("/")
 def read_root():
-    return {"status": "Luna is operational"} 
+    return {"status": "Luna is operational"}
+
+@app.post("/tweet")
+async def tweet(message: dict):
+    try:
+        response = twitter_api.tweet(message['message'])
+        return {"success": True, "tweet_id": response.id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e)) 

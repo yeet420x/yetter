@@ -1,21 +1,24 @@
-import websockets
 import asyncio
+import websockets
 import json
 
-async def test_connection():
-    uri = "wss://hcycfuvviw7fmk-8000.proxy.runpod.net/ws/chat"
-    print(f"Connecting to {uri}")
-    
+async def test_websocket():
+    uri = "ws://localhost:8000/ws/chat"
     try:
-        async with websockets.connect(uri, ssl=True) as websocket:
-            print("Connected!")
-            message = {"message": "Hello Luna!"}
-            print(f"Sending: {message}")
-            await websocket.send(json.dumps(message))
+        async with websockets.connect(uri) as websocket:
+            print("Connected to WebSocket")
+            
+            # Send a test message
+            test_message = {"message": "hello"}
+            await websocket.send(json.dumps(test_message))
+            print(f"Sent message: {test_message}")
+            
+            # Wait for response
             response = await websocket.recv()
-            print(f"Luna says: {response}")
+            print(f"Received response: {response}")
+            
     except Exception as e:
-        print(f"Connection error: {e}")
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(test_connection()) 
+    asyncio.run(test_websocket()) 
