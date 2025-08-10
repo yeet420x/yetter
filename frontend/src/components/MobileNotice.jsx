@@ -7,11 +7,13 @@ const MobileNotice = () => {
   useEffect(() => {
     // Check if device is mobile
     const isMobile = window.innerWidth <= 430;
-    setIsVisible(isMobile);
+    // Don't show mobile notice since we have a proper mobile interface
+    setIsVisible(false);
 
     // Update on resize
     const handleResize = () => {
-      setIsVisible(window.innerWidth <= 430);
+      // Always keep mobile notice hidden
+      setIsVisible(false);
     };
 
     window.addEventListener('resize', handleResize);

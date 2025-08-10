@@ -48,6 +48,14 @@ const App: React.FC = () => {
         <ChatInterface />
       </main>
 
+      {/* Mobile Layout - Only visible on mobile */}
+      <div className="mobile-layout">
+        <div className="mobile-bg"></div>
+        <div className="mobile-chat-container">
+          <ChatInterface />
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="app-footer">
         <div className="footer-content">
