@@ -37,6 +37,7 @@ body {
 /* Mobile layout - hidden by default */
 .mobile-layout {
   display: none;
+  /* Debug: ensure mobile layout is properly configured */
 }
 
 .app::before {
@@ -255,7 +256,7 @@ body {
   .logo-container {
     gap: 10px;
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
@@ -306,8 +307,9 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('./images/bg.jpg') no-repeat center center;
+    background: url('/images/bg.jpg') no-repeat center center;
     background-size: cover;
+    background-color: #1a1a1a; /* Fallback color */
     z-index: 1;
     background-attachment: scroll !important;
     -webkit-transform: translateZ(0) !important;
@@ -334,19 +336,6 @@ body {
     z-index: 1;
   }
   
-  /* Mobile layout optimization */
-  .mobile-layout {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    -webkit-transform: translateZ(0) !important; /* Hardware acceleration */
-    transform: translateZ(0) !important;
-    will-change: transform !important;
-  }
-  
   /* Mobile background optimization */
   .mobile-bg {
     background-attachment: scroll !important; /* Better mobile performance */
@@ -365,10 +354,10 @@ body {
   /* Mobile chat container optimization */
   .mobile-chat-container {
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: 0;
     right: 0;
-    bottom: 80px;
+    bottom: 120px;
     z-index: 50;
     padding: 20px;
     display: flex;
@@ -382,16 +371,6 @@ body {
     perspective: 1000 !important;
   }
   
-  /* Ensure mobile layout takes full screen */
-  .mobile-layout {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
   /* Mobile viewport meta adjustments */
   @supports (-webkit-touch-callout: none) {
     /* iOS specific adjustments */
@@ -401,8 +380,8 @@ body {
     }
     
     .mobile-chat-container {
-      height: calc(-webkit-fill-available - 160px);
-      min-height: calc(-webkit-fill-available - 160px);
+      height: calc(-webkit-fill-available - 220px);
+      min-height: calc(-webkit-fill-available - 220px);
     }
     
     .mobile-bg {
@@ -414,12 +393,12 @@ body {
   /* Mobile landscape orientation support */
   @media (max-width: 430px) and (orientation: landscape) {
     .logo-container {
-      top: 10px;
+      top: 15px;
     }
     
     .mobile-chat-container {
-      top: 60px;
-      bottom: 60px;
+      top: 80px;
+      bottom: 80px;
     }
     
     .app-footer {
@@ -447,16 +426,6 @@ body {
     user-select: text;
   }
   
-  /* Mobile performance optimization */
-  .mobile-layout {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-  
   /* Mobile safe area support */
   @supports (padding: max(0px)) {
     .mobile-layout {
@@ -473,12 +442,12 @@ body {
     }
     
     .logo-container {
-      top: max(20px, env(safe-area-inset-top) + 10px);
+      top: max(30px, env(safe-area-inset-top) + 20px);
     }
     
     .mobile-chat-container {
-      top: max(80px, env(safe-area-inset-top) + 60px);
-      bottom: max(80px, env(safe-area-inset-bottom) + 60px);
+      top: max(100px, env(safe-area-inset-top) + 80px);
+      bottom: max(120px, env(safe-area-inset-bottom) + 80px);
     }
   }
   
