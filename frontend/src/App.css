@@ -307,7 +307,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('/images/bg.jpg') no-repeat center center;
+    background: url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
     background-color: #1a1a1a; /* Fallback color */
     z-index: 1;
@@ -334,6 +334,19 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.3);
     z-index: 1;
+  }
+  
+  /* Mobile layout optimization */
+  .mobile-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-transform: translateZ(0) !important; /* Hardware acceleration */
+    transform: translateZ(0) !important;
+    will-change: transform !important;
   }
   
   /* Mobile background optimization */
@@ -369,6 +382,16 @@ body {
     backface-visibility: hidden !important;
     -webkit-perspective: 1000 !important;
     perspective: 1000 !important;
+  }
+  
+  /* Ensure mobile layout takes full screen */
+  .mobile-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
   
   /* Mobile viewport meta adjustments */
@@ -424,6 +447,16 @@ body {
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+  }
+  
+  /* Mobile performance optimization */
+  .mobile-layout {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
   }
   
   /* Mobile safe area support */
