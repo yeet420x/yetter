@@ -1007,12 +1007,101 @@
   }
 
   .input-area {
-    gap: 8px !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 20, 147, 0.5) !important;
+    flex-shrink: 0 !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+
+  .input-area input {
+    width: 100% !important;
+    height: 50px !important;
+    background: rgba(20, 20, 20, 0.9) !important;
+    border: 2px solid #FF1493 !important;
+    border-radius: 12px !important;
+    color: white !important;
+    padding: 0 20px !important;
+    font-size: 16px !important;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.3) !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    box-sizing: border-box !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+
+  .input-area input:focus {
+    outline: none !important;
+    border-color: #FF1493 !important;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.5) !important;
+    transform: scale(1.02) !important;
+    transition: all 0.2s ease !important;
+    -webkit-transform: scale(1.02) translateZ(0) !important;
+    transform: scale(1.02) translateZ(0) !important;
+  }
+
+  .input-area input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
   }
 
   .input-area button {
-    padding: 8px 10px !important;
-    font-size: 11px !important;
+    width: 100% !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #FF1493, #FF69B4) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.4) !important;
+    transition: all 0.3s ease !important;
+    min-height: 44px !important;
+    -webkit-tap-highlight-color: transparent !important;
+    cursor: pointer !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+
+  .input-area button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.6) !important;
+  }
+
+  .input-area button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4) !important;
+    -webkit-transform: scale(0.98) !important;
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+
+  .input-area button:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
   }
 }
 

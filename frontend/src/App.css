@@ -237,7 +237,19 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-transform: translateZ(0) !important; /* Hardware acceleration */
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
   }
   
   .logo-container {
@@ -297,6 +309,17 @@ body {
     background: url('./images/bg.jpg') no-repeat center center;
     background-size: cover;
     z-index: 1;
+    background-attachment: scroll !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-perspective: 1000 !important;
+    perspective: 1000 !important;
   }
   
   /* Mobile background overlay */
